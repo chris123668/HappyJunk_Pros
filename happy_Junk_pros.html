@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HappyJunk Pros Junk Removal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background-color: #f6f7f2;
+    }
+
+    header {
+      background: #1f3d2b;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      min-height: 520px;
+      padding: 80px 8%;
+      background: linear-gradient(rgba(31, 61, 43, 0.82), rgba(31, 61, 43, 0.82)),
+        url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: #f4c430;
+      color: #222;
+      padding: 13px 24px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #e0b32b;
+    }
+
+    section {
+      padding: 60px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 2rem;
+      color: #1f3d2b;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #1f3d2b;
+      margin-bottom: 10px;
+    }
+
+    .how-it-works {
+      background: #ffffff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .step-number {
+      background: #1f3d2b;
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-weight: bold;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .review-incentive {
+      max-width: 750px;
+      margin: 35px auto 0;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .review-incentive h3 {
+      color: #1f3d2b;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .review-incentive p {
+      margin-bottom: 18px;
+    }
+
+    .review-box {
+      display: none;
+      margin-top: 22px;
+      text-align: left;
+    }
+
+    .quote-section {
+      background: #1f3d2b;
+      color: white;
+    }
+
+    .quote-section .section-title {
+      color: white;
+    }
+
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      color: #222;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .message {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #e8f6ec;
+      border-left: 5px solid #1f3d2b;
+      color: #1f3d2b;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #14271c;
+      color: white;
+      text-align: center;
+      padding: 25px 8%;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .about,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">HappyJunk Pros</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#quote">Quote</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Fast, Affordable Junk Removal in Your Area</h1>
+        <p>We remove furniture, appliances, yard waste, garage clutter, office junk, and more. Same-day and next-day appointments available.</p>
+        <a href="#quote" class="btn">Get a Free Quote</a>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Furniture Removal</h3>
+          <p>Couches, mattresses, tables, chairs, dressers, and other bulky items.</p>
+        </div>
+        <div class="card">
+          <h3>Appliance Removal</h3>
+          <p>Old refrigerators, washers, dryers, microwaves, and other appliances.</p>
+        </div>
+        <div class="card">
+          <h3>Garage Cleanouts</h3>
+          <p>Clear out boxes, tools, junk piles, old equipment, and unwanted clutter.</p>
+        </div>
+        <div class="card">
+          <h3>Yard Waste</h3>
+          <p>Branches, leaves, brush, outdoor debris, and small landscaping waste.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps">
+        <div class="card">
+          <div class="step-number">1</div>
+          <h3>Request a Quote</h3>
+          <p>Tell us what you need removed and where you are located.</p>
+        </div>
+        <div class="card">
+          <div class="step-number">2</div>
+          <h3>Schedule Pickup</h3>
+          <p>Choose a pickup time that works for your schedule.</p>
+        </div>
+        <div class="card">
+          <div class="step-number">3</div>
+          <h3>We Haul It Away</h3>
+          <p>Our crew loads everything and leaves your space clean.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About HappyJunk Pros</h2>
+      <div class="about">
+        <div class="about-box">
+          <h3>Local Junk Removal Company</h3>
+          <p>HappyJunk Pros is a small junk removal business serving Raleigh, Durham, Wake Forest, and nearby areas. We focus on simple scheduling, fair pricing, and reliable service.</p>
+          <br />
+          <p>Whether you are cleaning out a garage, replacing furniture, or clearing office space, we make the removal process straightforward.</p>
+        </div>
+        <div class="about-box">
+          <h3>Why Choose Us?</h3>
+          <p>✔ Same-day and next-day options</p>
+          <p>✔ Upfront estimates</p>
+          <p>✔ Friendly local crew</p>
+          <p>✔ Residential and commercial jobs</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <h2 class="section-title">Customer Reviews</h2>
+      <div class="services">
+        <div class="card">
+          <h3>★★★★★</h3>
+          <p>"They showed up on time, removed everything quickly, and left the garage clean."</p>
+          <p><strong>- Marcus T.</strong></p>
+        </div>
+        <div class="card">
+          <h3>★★★★★</h3>
+          <p>"Very easy to schedule. The crew was friendly and the price was fair."</p>
+          <p><strong>- Angela R.</strong></p>
+        </div>
+        <div class="card">
+          <h3>★★★★☆</h3>
+          <p>"Good service and fast pickup. I would use them again for another cleanout."</p>
+          <p><strong>- Devin M.</strong></p>
+        </div>
+      </div>
+
+      <div class="review-incentive">
+        <h3>Happy With the Job?</h3>
+        <p>Leave us a review after your pickup and receive <strong>10% off your next junk removal service</strong>.</p>
+        <button class="btn" id="reviewButton">Leave a Review</button>
+        <div id="reviewBox" class="review-box">
+          <label for="reviewText">Your Review</label>
+          <textarea id="reviewText" placeholder="Write your review here..."></textarea>
+          <button class="btn" id="submitReview">Submit Review</button>
+          <p id="reviewThanks" class="message">Thank you for your review. Your discount will be applied to your next service.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" class="quote-section">
+      <h2 class="section-title">Get a Free Quote</h2>
+      <form id="quoteForm">
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="(919) 555-0148" required />
+          </div>
+        </div>
+
+        <label for="service">Type of Junk</label>
+        <select id="service" required>
+          <option value="">Select a service</option>
+          <option>Furniture Removal</option>
+          <option>Appliance Removal</option>
+          <option>Garage Cleanout</option>
+          <option>Yard Waste</option>
+          <option>Other</option>
+        </select>
+
+        <label for="photo">Upload a Photo</label>
+        <input type="file" id="photo" accept="image/*" />
+
+        <label for="message">Job Details</label>
+        <textarea id="message" placeholder="Describe what needs to be removed..." required></textarea>
+
+        <button type="submit" class="btn">Submit Quote Request</button>
+        <div id="successMessage" class="message">Thank you. Your quote request has been received.</div>
+      </form>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="card">
+        <p><strong>Phone:</strong> (919) 555-0148</p>
+        <p><strong>Email:</strong> quotes@happyjunkpros.com</p>
+        <p><strong>Hours:</strong> Monday - Saturday, 8:00 AM - 6:00 PM</p>
+        <p><strong>Service Area:</strong> Raleigh, Durham, Wake Forest, and surrounding areas</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 HappyJunk Pros Junk Removal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const quoteForm = document.getElementById("quoteForm");
+    const successMessage = document.getElementById("successMessage");
+    const reviewButton = document.getElementById("reviewButton");
+    const reviewBox = document.getElementById("reviewBox");
+    const submitReview = document.getElementById("submitReview");
+    const reviewText = document.getElementById("reviewText");
+    const reviewThanks = document.getElementById("reviewThanks");
+
+    quoteForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value;
+      const photo = document.getElementById("photo").files.length;
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !phone || !service || !message) {
+        alert("Please fill out all required fields.");
+        return;
+      }
+
+      successMessage.style.display = "block";
+
+      if (photo > 0) {
+        successMessage.innerText = "Thank you. Your quote request and photo have been received.";
+      } else {
+        successMessage.innerText = "Thank you. Your quote request has been received.";
+      }
+      quoteForm.reset();
+    });
+
+    reviewButton.addEventListener("click", function() {
+      reviewBox.style.display = "block";
+    });
+
+    submitReview.addEventListener("click", function() {
+      if (reviewText.value.trim() === "") {
+        alert("Please write a short review before submitting.");
+        return;
+      }
+
+      reviewThanks.style.display = "block";
+      reviewText.value = "";
+    });
+  </script>
+</body>
+</html>
