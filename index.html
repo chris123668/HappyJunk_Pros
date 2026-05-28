@@ -210,39 +210,31 @@
       </aside>
     </section>
 
-   
-<script>
-document
-  .getElementById("quoteForm")
-  .addEventListener("submit", async function(e) {
+    <script>
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1jRrsVNZQXPNGenqka4cb5NGOR637w5BULS_YlXb-NIkkAM5zg448AwJ0suJldnOG-w/exec";
 
-    e.preventDefault();
+    document.getElementById("quoteForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
 
-    const formData = {
-      name: this.name.value,
-      phone: this.phone.value,
-      email: this.email.value,
-      service: this.service.value,
-      message: this.message.value
-    };
+      const formData = new FormData(this);
 
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbyZu9kQx8KS7Vj0tnmmQkRKPELlD226RmSwgCa41gtoZGQgoW2Xr2B0OD_9MNlTDM_5XA/exec",
-      {
-        method: "POST",
-        body: JSON.stringify(formData)
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData
+        });
+
+        alert("Quote submitted successfully.");
+        this.reset();
+
+      } catch (error) {
+        alert("There was a problem submitting the quote.");
+        console.error(error);
       }
-    );
-
-    if (response.ok) {
-      alert("Quote submitted!");
-      this.reset();
-    } else {
-      alert("Error submitting form.");
-    }
-
-});
-</script>
+    });
+    </script>
+    
 
     <section class="content-section" id="about">
       <div class="section-label">
