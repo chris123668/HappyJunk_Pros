@@ -3,251 +3,309 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HappyJunk Pros | Junk Removal Services</title>
+  <title>Happy Junk Pros LLC | Junk Removal</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="logo">HappyJunk <span>Pros</span></div>
+    <div class="header-container">
+      <a href="#" class="brand">
+        <img src="images/logo.jpg" alt="Happy Junk Pros LLC logo" class="site-logo" />
+      </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
-      ☰
-    </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#quote">Quote</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <nav class="nav-links" id="navLinks">
+        <a href="#" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button">Dark Mode</button>
+
+      <a href="tel:919-370-6393" class="top-call-btn">
+        <span class="phone-icon">☎</span>
+        (919)-370-6393
+      </a>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-overlay"></div>
+    <section class="hero" id="hero">
+      <div class="hero-slides">
+        <div class="hero-slide active"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+      </div>
 
-      <div class="hero-content">
-        <p class="eyebrow">Local junk removal made simple</p>
-        <h1>Fast, affordable junk removal without the stress.</h1>
-        <p class="hero-text">
-          We remove furniture, appliances, yard waste, garage clutter, office junk,
-          and more. Same-day and next-day appointments are available.
-        </p>
+      <div class="hero-shade"></div>
 
-        <div class="hero-actions">
-          <a href="#quote" class="btn primary-btn">Get a Free Quote</a>
-          <a href="#services" class="btn secondary-btn">View Services</a>
+      <button class="gallery-btn gallery-prev" id="prevPhoto" aria-label="Previous photo">‹</button>
+      <button class="gallery-btn gallery-next" id="nextPhoto" aria-label="Next photo">›</button>
+
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1>
+            WE HAUL IT ALL,<br />
+            <span>SO YOU DON’T HAVE TO.</span>
+          </h1>
+
+          <p>
+            Fast. Friendly. Affordable Junk Removal<br />
+            for Homes, Businesses & More.
+          </p>
+
+          <a href="tel:2035550199" class="hero-call-btn">
+            <span>☎</span>
+            CALL NOW (919)-370-6393
+          </a>
+
+          <div class="gallery-dots" id="galleryDots">
+            <button class="dot active" aria-label="Show photo 1"></button>
+            <button class="dot" aria-label="Show photo 2"></button>
+            <button class="dot" aria-label="Show photo 3"></button>
+            <button class="dot" aria-label="Show photo 4"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-quote-wrap" id="services">
+      <div class="services-area">
+        <div class="section-label">
+          <span></span>
+          <p>WHAT WE DO</p>
+          <span></span>
         </div>
 
-        <div class="trust-row">
-          <span>Same-day options</span>
-          <span>Upfront estimates</span>
-          <span>Local crew</span>
+        <h2>JUNK REMOVAL MADE EASY</h2>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">⌂</div>
+            <h3>Residential<br />Junk Removal</h3>
+            <div class="mini-line"></div>
+            <p>Cleanouts, clutter,<br />furniture & more.</p>
+            <div class="check">✓</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">▤</div>
+            <h3>Furniture<br />Removal</h3>
+            <div class="mini-line"></div>
+            <p>Couches, mattresses,<br />tables, chairs,<br />and bulky items.</p>
+            <div class="check">✓</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◫</div>
+            <h3>Appliance<br />Removal</h3>
+            <div class="mini-line"></div>
+            <p>Old washers, dryers,<br />refrigerators,<br />and appliances.</p>
+            <div class="check">✓</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">♻</div>
+            <h3>Eco-Friendly<br />Disposal</h3>
+            <div class="mini-line"></div>
+            <p>We recycle and donate<br />whenever possible to<br />keep our community clean.</p>
+            <div class="check">✓</div>
+          </article>
+        </div>
+
+        <div class="feature-strip">
+          <div class="feature">
+            <span>⏱</span>
+            <div>
+              <h4>Fast Service</h4>
+              <p>We show up on time.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <span>♙</span>
+            <div>
+              <h4>Affordable Pricing</h4>
+              <p>Upfront, honest quotes.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <span>🤝</span>
+            <div>
+              <h4>Friendly Team</h4>
+              <p>Respectful & reliable.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <span>◒</span>
+            <div>
+              <h4>Eco-Friendly</h4>
+              <p>We recycle & donate.</p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <aside class="quote-panel" id="quote">
+        <h2>GET A FREE QUOTE</h2>
+        <div class="quote-underline"></div>
+        <p>Quick. Easy. No Obligation.</p>
+
+        <form id="quoteForm">
+          <div class="form-row">
+            <div class="input-icon">
+              <span>♟</span>
+              <input type="text" id="name" name="name" placeholder="Full Name" required />
+            </div>
+
+            <div class="input-icon">
+              <span>☎</span>
+              <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+            </div>
+          </div>
+
+          <div class="input-icon wide">
+            <span>▣</span>
+            <select id="service" name="service" required>
+              <option value="">Service Needed</option>
+              <option>Residential Junk Removal</option>
+              <option>Furniture Removal</option>
+              <option>Appliance Removal</option>
+              <option>Yard Waste Removal</option>
+              <option>Eco-Friendly Disposal</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="input-icon wide">
+            <span>✉</span>
+            <input type="email" id="email" name="email" placeholder="Email Address" />
+          </div>
+
+          <label class="file-row" for="photo">
+            <span>▧</span>
+            <strong>Upload a Photo (optional)</strong>
+            <em>Choose File</em>
+            <input type="file" id="photo" name="photo" accept="image/*" />
+          </label>
+
+          <div class="input-icon wide textarea-wrap">
+            <span>✎</span>
+            <textarea id="message" name="message" placeholder="Additional Details" required></textarea>
+          </div>
+
+          <button type="submit" class="quote-submit-btn">
+            GET MY FREE QUOTE
+            <span>›</span>
+          </button>
+
+          <p class="secure-note">🛡 Your information is safe and secure.</p>
+          <div id="successMessage" class="message">Thank you. Your quote request has been received.</div>
+        </form>
+      </aside>
     </section>
 
-    <section id="services" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">What we remove</p>
-        <h2>Our Services</h2>
-        <p>
-          From single-item pickups to full cleanouts, HappyJunk Pros helps clear
-          unwanted junk quickly and safely.
-        </p>
+    <section class="content-section" id="about">
+      <div class="section-label">
+        <span></span>
+        <p>ABOUT US</p>
+        <span></span>
       </div>
-
-      <div class="card-grid">
-        <article class="service-card">
-          <div class="icon">🛋️</div>
-          <h3>Furniture Removal</h3>
-          <p>Couches, mattresses, tables, chairs, dressers, and bulky household items.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="icon">🧊</div>
-          <h3>Appliance Removal</h3>
-          <p>Old refrigerators, washers, dryers, microwaves, and other appliances.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="icon">📦</div>
-          <h3>Garage Cleanouts</h3>
-          <p>Clear out boxes, tools, junk piles, old equipment, and clutter.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="icon">🌿</div>
-          <h3>Yard Waste</h3>
-          <p>Branches, leaves, brush, outdoor debris, and small landscaping waste.</p>
-        </article>
-      </div>
+      <h2>Local junk removal with clear pricing and reliable service.</h2>
+      <p>
+        Happy Junk Pros LLC helps homeowners and businesses remove unwanted items quickly.
+        We focus on simple scheduling, upfront estimates, and respectful service.
+      </p>
     </section>
 
-    <section class="section process-section">
-      <div class="section-heading">
-        <p class="eyebrow">Simple process</p>
-        <h2>How It Works</h2>
+    <section class="content-section reviews-section" id="reviews">
+      <div class="section-label">
+        <span></span>
+        <p>REVIEWS</p>
+        <span></span>
       </div>
-
-      <div class="steps">
-        <article class="step-card">
-          <span class="step-number">1</span>
-          <h3>Request a Quote</h3>
-          <p>Tell us what needs to be removed and upload a photo if you have one.</p>
-        </article>
-
-        <article class="step-card">
-          <span class="step-number">2</span>
-          <h3>Schedule Pickup</h3>
-          <p>Choose a pickup time that works for your schedule.</p>
-        </article>
-
-        <article class="step-card">
-          <span class="step-number">3</span>
-          <h3>We Haul It Away</h3>
-          <p>Our crew loads everything and leaves your space clean.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="about" class="section about-section">
-      <div class="about-content">
-        <p class="eyebrow">About us</p>
-        <h2>Local junk removal with clear pricing and reliable service.</h2>
-        <p>
-          HappyJunk Pros is a small junk removal business serving Raleigh, Durham,
-          Wake Forest, and nearby areas. We focus on simple scheduling, fair pricing,
-          and dependable work.
-        </p>
-        <p>
-          Whether you are cleaning out a garage, replacing furniture, or clearing
-          office space, we make the removal process straightforward.
-        </p>
-      </div>
-
-      <div class="about-panel">
-        <h3>Why Choose Us?</h3>
-        <ul>
-          <li>Same-day and next-day options</li>
-          <li>Upfront estimates</li>
-          <li>Residential and commercial jobs</li>
-          <li>Friendly local crew</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="reviews" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Customer feedback</p>
-        <h2>Customer Reviews</h2>
-        <p>See what customers say after working with HappyJunk Pros.</p>
-      </div>
+      <h2>What Customers Say</h2>
 
       <div class="review-grid">
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
+        <article>
+          <strong>★★★★★</strong>
           <p>"They showed up on time, removed everything quickly, and left the garage clean."</p>
-          <strong>- Marcus T.</strong>
+          <h4>- Marcus T.</h4>
         </article>
 
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
+        <article>
+          <strong>★★★★★</strong>
           <p>"Very easy to schedule. The crew was friendly and the price was fair."</p>
-          <strong>- Angela R.</strong>
+          <h4>- Angela R.</h4>
         </article>
 
-        <article class="review-card">
-          <div class="stars">★★★★☆</div>
+        <article>
+          <strong>★★★★☆</strong>
           <p>"Good service and fast pickup. I would use them again for another cleanout."</p>
-          <strong>- Devin M.</strong>
+          <h4>- Devin M.</h4>
         </article>
       </div>
 
-      <div class="review-incentive">
-        <div>
-          <p class="eyebrow">Discount offer</p>
-          <h3>Happy With the Job?</h3>
-          <p>
-            Leave us a review after your pickup and receive
-            <strong>10% off your next junk removal service</strong>.
-          </p>
-        </div>
+      <div class="review-discount">
+        <h3>Happy With the Job?</h3>
+        <p>Leave us a review after your pickup and receive <strong>10% off your next junk removal service</strong>.</p>
+        <button id="reviewButton">Leave a Review</button>
 
-        <button class="btn primary-btn" id="reviewButton">Leave a Review</button>
-
-        <div id="reviewBox" class="review-box">
-          <label for="reviewText">Your Review</label>
+        <div id="reviewBox">
           <textarea id="reviewText" placeholder="Write your review here..."></textarea>
-          <button class="btn primary-btn" id="submitReview">Submit Review</button>
-          <p id="reviewThanks" class="message">
-            Thank you for your review. Your discount will be applied to your next service.
-          </p>
+          <button id="submitReview">Submit Review</button>
+          <p id="reviewThanks" class="message">Thank you for your review. Your discount will be applied to your next service.</p>
         </div>
       </div>
     </section>
 
-    <section id="quote" class="quote-section">
-      <div class="section-heading light">
-        <p class="eyebrow">Free estimate</p>
-        <h2>Get a Free Quote</h2>
-        <p>Upload a photo so we can better estimate the size of the job.</p>
+    <section class="content-section" id="faq">
+      <div class="section-label">
+        <span></span>
+        <p>FAQ</p>
+        <span></span>
       </div>
+      <h2>Common Questions</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Do you offer same-day pickup?</summary>
+          <p>Same-day pickup may be available depending on schedule and service area.</p>
+        </details>
 
-      <form id="quoteForm" class="quote-form">
-        <div class="form-row">
-          <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
+        <details>
+          <summary>Can I upload a photo for a quote?</summary>
+          <p>Yes. Photos help estimate the size and type of junk removal job.</p>
+        </details>
 
-          <div>
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="(919) 555-0148" required />
-          </div>
-        </div>
-
-        <label for="service">Type of Junk</label>
-        <select id="service" name="service" required>
-          <option value="">Select a service</option>
-          <option>Furniture Removal</option>
-          <option>Appliance Removal</option>
-          <option>Garage Cleanout</option>
-          <option>Yard Waste</option>
-          <option>Other</option>
-        </select>
-
-        <label for="photo">Upload a Photo</label>
-        <input type="file" id="photo" name="photo" accept="image/*" />
-
-        <label for="message">Job Details</label>
-        <textarea id="message" name="message" placeholder="Describe what needs to be removed..." required></textarea>
-
-        <button type="submit" class="btn primary-btn full-btn">Submit Quote Request</button>
-        <div id="successMessage" class="message">
-          Thank you. Your quote request has been received.
-        </div>
-      </form>
+        <details>
+          <summary>Do you remove large furniture?</summary>
+          <p>Yes. We remove couches, mattresses, tables, dressers, and other bulky household items.</p>
+        </details>
+      </div>
     </section>
 
-    <section id="contact" class="section contact-section">
-      <div class="section-heading">
-        <p class="eyebrow">Contact</p>
-        <h2>Contact HappyJunk Pros</h2>
+    <section class="content-section contact-section" id="contact">
+      <div class="section-label">
+        <span></span>
+        <p>CONTACT</p>
+        <span></span>
       </div>
-
-      <div class="contact-card">
-        <p><strong>Phone:</strong> (919) 555-0148</p>
-        <p><strong>Email:</strong> quotes@happyjunkpros.com</p>
-        <p><strong>Hours:</strong> Monday - Saturday, 8:00 AM - 6:00 PM</p>
-        <p><strong>Service Area:</strong> Raleigh, Durham, Wake Forest, and surrounding areas</p>
-      </div>
+      <h2>Contact Happy Junk Pros LLC</h2>
+      <p><strong>Phone:</strong> (919)-370-6393</p>
+      <p><strong>Email:</strong> Happyjunkprosllc@gmail.com</p>
+      <p><strong>Hours:</strong> Monday - Thursday, 8:00 AM - 6:00 PM | Friday, 8:00 AM - 5:00 PM | Saturday & Sunday, By Appointment only</p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 HappyJunk Pros. All rights reserved.</p>
+    <p>&copy; 2026 Happy Junk Pros LLC. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
