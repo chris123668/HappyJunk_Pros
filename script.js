@@ -5,22 +5,19 @@ const nextPhoto = document.getElementById("nextPhoto");
 const galleryDots = document.querySelectorAll(".dot");
 const heroSlides = document.querySelectorAll(".hero-slide");
 const themeToggle = document.getElementById("themeToggle");
-const quoteForm = document.getElementById("quoteForm");
-const successMessage = document.getElementById("successMessage");
 const reviewButton = document.getElementById("reviewButton");
-const reviewBox = document.getElementById("reviewBox");
-const submitReview = document.getElementById("submitReview");
-const reviewText = document.getElementById("reviewText");
-const reviewThanks = document.getElementById("reviewThanks");
+const workGalleryImage = document.getElementById("workGalleryImage");
+const workGalleryPrev = document.getElementById("workGalleryPrev");
+const workGalleryNext = document.getElementById("workGalleryNext");
+const workGalleryThumbs = document.querySelectorAll(".work-thumb");
+
+// Replace this URL with your real Google Maps review link.
+// Google Business Profile > Ask for reviews > copy review link.
+const GOOGLE_REVIEW_URL = "https://www.google.com/maps/place/Happy+Junk+Pros+LLC/@35.8925862,-79.3621087,97482m/data=!3m1!1e3!4m16!1m9!3m8!1s0x89acefd9f5167459:0x29271bd14fcaae32!2sHappy+Junk+Pros+LLC!8m2!3d35.8930385!4d-79.0317753!9m1!1b1!16s%2Fg%2F11m9qvqjsz!3m5!1s0x89acefd9f5167459:0x29271bd14fcaae32!8m2!3d35.8930385!4d-79.0317753!16s%2Fg%2F11m9qvqjsz?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D";
 
 themeToggle.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
-
-  if (document.body.classList.contains("dark-mode")) {
-    themeToggle.innerText = "Light Mode";
-  } else {
-    themeToggle.innerText = "Dark Mode";
-  }
+  themeToggle.innerText = document.body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
 });
 
 let currentPhotoIndex = 0;
@@ -68,40 +65,40 @@ navLinks.addEventListener("click", function (event) {
   }
 });
 
-quoteForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const service = document.getElementById("service").value;
-  const message = document.getElementById("message").value.trim();
-  const photo = document.getElementById("photo").files.length;
-
-  if (!name || !phone || !service || !message) {
-    alert("Please fill out all required fields.");
-    return;
-  }
-
-  if (photo > 0) {
-    successMessage.innerText = "Thank you. Your quote request and photo have been received.";
-  } else {
-    successMessage.innerText = "Thank you. Your quote request has been received.";
-  }
-
-  successMessage.style.display = "block";
-  quoteForm.reset();
-});
-
 reviewButton.addEventListener("click", function () {
-  reviewBox.style.display = "block";
+  window.open(GOOGLE_REVIEW_URL, "_blank", "noopener,noreferrer");
 });
 
-submitReview.addEventListener("click", function () {
-  if (reviewText.value.trim() === "") {
-    alert("Please write a short review before submitting.");
-    return;
-  }
+const workGalleryImages = Array.from(workGalleryThumbs).map(function (thumb) {
+  return thumb.dataset.image;
+});
 
-  reviewThanks.style.display = "block";
-  reviewText.value = "";
+let currentWorkImageIndex = 0;
+
+function updateWorkGallery(index) {
+  currentWorkImageIndex = index;
+  workGalleryImage.src = workGalleryImages[currentWorkImageIndex];
+
+  workGalleryThumbs.forEach(function (thumb, thumbIndex) {
+    thumb.classList.toggle("active", thumbIndex === currentWorkImageIndex);
+  });
+}
+
+function showNextWorkImage() {
+  const nextIndex = (currentWorkImageIndex + 1) % workGalleryImages.length;
+  updateWorkGallery(nextIndex);
+}
+
+function showPreviousWorkImage() {
+  const previousIndex = (currentWorkImageIndex - 1 + workGalleryImages.length) % workGalleryImages.length;
+  updateWorkGallery(previousIndex);
+}
+
+workGalleryNext.addEventListener("click", showNextWorkImage);
+workGalleryPrev.addEventListener("click", showPreviousWorkImage);
+
+workGalleryThumbs.forEach(function (thumb, index) {
+  thumb.addEventListener("click", function () {
+    updateWorkGallery(index);
+  });
 });

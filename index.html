@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Junk Pros LLC | Junk Removal</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
 </head>
 <body>
   <header class="site-header">
     <div class="header-container">
-      <a href="#" class="brand">
+      <a href="#" class="brand" aria-label="Happy Junk Pros home">
         <img src="images/logo.jpg" alt="Happy Junk Pros LLC logo" class="site-logo" />
+        <span class="brand-name">Happy Junk Pros</span>
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
@@ -20,6 +22,7 @@
         <a href="#services">Services</a>
         <a href="#about">About Us</a>
         <a href="#reviews">Reviews</a>
+        <a href="#work-gallery">Gallery</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -86,7 +89,7 @@
 
         <div class="services-grid">
           <article class="service-card">
-            <div class="service-icon">⌂</div>
+            <div class="service-icon">🏡</div>
             <h3>Residential<br />Junk Removal</h3>
             <div class="mini-line"></div>
             <p>Cleanouts, clutter,<br />furniture & more.</p>
@@ -94,7 +97,7 @@
           </article>
 
           <article class="service-card">
-            <div class="service-icon">▤</div>
+            <div class="service-icon">🪑</div>
             <h3>Furniture<br />Removal</h3>
             <div class="mini-line"></div>
             <p>Couches, mattresses,<br />tables, chairs,<br />and bulky items.</p>
@@ -102,7 +105,7 @@
           </article>
 
           <article class="service-card">
-            <div class="service-icon">◫</div>
+            <div class="service-icon">🛁</div>
             <h3>Appliance<br />Removal</h3>
             <div class="mini-line"></div>
             <p>Old washers, dryers,<br />refrigerators,<br />and appliances.</p>
@@ -110,10 +113,10 @@
           </article>
 
           <article class="service-card">
-            <div class="service-icon">♻</div>
-            <h3>Eco-Friendly<br />Disposal</h3>
+            <div class="service-icon">🧱</div>
+            <h3>Demolitions<br />Disposal</h3>
             <div class="mini-line"></div>
-            <p>We recycle and donate<br />whenever possible to<br />keep our community clean.</p>
+            <p>We demolish and dispose<br />Kitchen Cabinets, Doors,<br />Furniture, and more.<br /></p>
             <div class="check">✓</div>
           </article>
         </div>
@@ -128,7 +131,7 @@
           </div>
 
           <div class="feature">
-            <span>♙</span>
+            <span>💲</span>
             <div>
               <h4>Affordable Pricing</h4>
               <p>Upfront, honest quotes.</p>
@@ -144,7 +147,7 @@
           </div>
 
           <div class="feature">
-            <span>◒</span>
+            <span>♻</span>
             <div>
               <h4>Eco-Friendly</h4>
               <p>We recycle & donate.</p>
@@ -179,7 +182,7 @@
               <option>Furniture Removal</option>
               <option>Appliance Removal</option>
               <option>Yard Waste Removal</option>
-              <option>Eco-Friendly Disposal</option>
+              <option>Demolition</option>
               <option>Other</option>
             </select>
           </div>
@@ -260,33 +263,65 @@
       <div class="review-grid">
         <article>
           <strong>★★★★★</strong>
-          <p>"They showed up on time, removed everything quickly, and left the garage clean."</p>
-          <h4>- Marcus T.</h4>
+          <p>"Guillermo and his team were amazing to work with. They were very responsive, efficient, and made drop-off and pick-up super easy. We used them a few months ago during our renovations and will absolutely keep using them for future projects."</p>
+          <h4>- Suzy A.</h4>
         </article>
 
         <article>
           <strong>★★★★★</strong>
-          <p>"Very easy to schedule. The crew was friendly and the price was fair."</p>
-          <h4>- Angela R.</h4>
+          <p>"I highly recommended this company. They have an outstanding professional team that is responsive and on time. We’ll definitely be using their services again in the future."</p>
+          <h4>- Nicole S.</h4>
         </article>
 
         <article>
-          <strong>★★★★☆</strong>
-          <p>"Good service and fast pickup. I would use them again for another cleanout."</p>
-          <h4>- Devin M.</h4>
+          <strong>★★★★★</strong>
+          <p>"On time, good work, and great communication! Will be using again. Highly recommend"</p>
+          <h4>- Franklin R.</h4>
         </article>
       </div>
 
       <div class="review-discount">
         <h3>Happy With the Job?</h3>
-        <p>Leave us a review after your pickup and receive <strong>10% off your next junk removal service</strong>.</p>
-        <button id="reviewButton">Leave a Review</button>
+        <p>Share your experience on Google Maps so other customers can see what to expect.</p>
+        <button id="reviewButton" type="button">Leave a Google Review</button>
+      </div>
+    </section>
 
-        <div id="reviewBox">
-          <textarea id="reviewText" placeholder="Write your review here..."></textarea>
-          <button id="submitReview">Submit Review</button>
-          <p id="reviewThanks" class="message">Thank you for your review. Your discount will be applied to your next service.</p>
+    <section class="content-section work-gallery-section" id="work-gallery">
+      <div class="section-label">
+        <span></span>
+        <p>OUR WORK</p>
+        <span></span>
+      </div>
+      <h2>See More of Our Work</h2>
+      <p>Click through the gallery to view more junk removal jobs and cleanouts.</p>
+
+      <div class="work-gallery">
+        <button class="work-gallery-btn work-gallery-prev" id="workGalleryPrev" type="button" aria-label="Previous work photo">‹</button>
+
+        <div class="work-gallery-frame">
+          <img src="images/IMG_0118.JPEG" alt="Happy Junk Pros completed junk removal job" id="workGalleryImage" />
         </div>
+
+        <button class="work-gallery-btn work-gallery-next" id="workGalleryNext" type="button" aria-label="Next work photo">›</button>
+      </div>
+
+      <div class="work-gallery-thumbs" id="workGalleryThumbs">
+        <button type="button" class="work-thumb active" data-image="images/IMG_1175.JPEG" aria-label="Show work photo 1">
+          <img src="images/IMG_1175.JPEG" alt="Work photo thumbnail 1" />
+        </button>
+        <button type="button" class="work-thumb" data-image="images/IMG_2001.JPEG" aria-label="Show work photo 2">
+          <img src="images/IMG_2001.JPEG" alt="Work photo thumbnail 2" />
+        </button>
+        <button type="button" class="work-thumb" data-image="images/IMG_4665.JPEG" aria-label="Show work photo 3">
+          <img src="images/IMG_4665.JPEG" alt="Work photo thumbnail 3" />
+        </button>
+        <button type="button" class="work-thumb" data-image="images/IMG_7681.JPEG" aria-label="Show work photo 4">
+          <img src="images/IMG_7681.JPEG" alt="Work photo thumbnail 4" />
+        </button>
+        <button type="button" class="work-thumb" data-image="images/IMG_9551.JPEG" aria-label="Show work photo 4">
+          <img src="images/IMG_9551.JPEG" alt="Work photo thumbnail 4" />
+        </button>
       </div>
     </section>
 
