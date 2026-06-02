@@ -166,12 +166,12 @@
           <div class="form-row">
             <div class="input-icon">
               <span>♟</span>
-              <input type="text" id="name" name="name" placeholder="Full Name" required />
+              <input type="text" id="name" name="name" placeholder="Full Name"  required />
             </div>
 
             <div class="input-icon">
               <span>☎</span>
-              <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+              <input type="tel" id="phone" name="phone" placeholder="Phone Number" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" title="Enter a valid 10-digit phone number" required />
             </div>
           </div>
 
@@ -190,14 +190,14 @@
 
           <div class="input-icon wide">
             <span>✉</span>
-            <input type="email" id="email" name="email" placeholder="Email Address" />
+            <input type="email" id="email" name="email" placeholder="Email Address" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"/>
           </div>
 
           <label class="file-row" for="photo">
             <span>▧</span>
             <strong>Upload a Photo (optional)</strong>
             <em id="photoFileName">Choose File</em>
-            <input type="file" id="photo" name="photo" accept="image/*" />
+            <input type="file" id="photo" name="photo" accept="image/*" multiple/>
           </label>
 
           <div class="input-icon wide textarea-wrap">
@@ -225,7 +225,11 @@
 
     photoInput.addEventListener("change", function () {
       if (this.files && this.files.length > 0) {
-        photoFileName.textContent = this.files[0].name;
+        if (this.files.length === 1) {
+          photoFileName.textContent = this.files[0].name;
+        } else {
+          photoFileName.textContent = `${this.files.length} photos selected`;
+        }
       } else {
         photoFileName.textContent = "Choose File";
       }
@@ -245,23 +249,28 @@
 
       try {
         // 1. Upload the photo to Cloudflare R2 through your Worker.
+        let photoUrls = [];
+
         if (photoInput.files.length > 0) {
-          const r2FormData = new FormData();
-          r2FormData.append("photo", photoInput.files[0]);
-          r2FormData.append("name", this.name.value);
+          for (const file of photoInput.files) {
+            const r2FormData = new FormData();
 
-          const r2Response = await fetch(R2_UPLOAD_URL, {
-            method: "POST",
-            body: r2FormData
-          });
+            r2FormData.append("photo", file);
+            r2FormData.append("name", document.getElementById("name").value);
 
-          const r2Result = await r2Response.json();
+            const r2Response = await fetch(R2_UPLOAD_URL, {
+              method: "POST",
+              body: r2FormData
+            });
 
-          if (!r2Response.ok || !r2Result.success) {
-            throw new Error(r2Result.error || "Photo upload failed.");
+            const r2Result = await r2Response.json();
+
+            if (!r2Response.ok || !r2Result.success) {
+              throw new Error(r2Result.error || "Photo upload failed.");
+            }
+
+            photoUrls.push(r2Result.url);
           }
-
-          photoUrl = r2Result.url;
         }
 
         // 2. Send quote details and photo URL to Google Sheets.
@@ -271,7 +280,7 @@
           service: document.getElementById("service").value,
           email: document.getElementById("email").value,
           message: document.getElementById("message").value,
-          photoUrl: photoUrl
+          photoUrl: photoUrls.join(", ")
         };
 
         await fetch(GOOGLE_SCRIPT_URL, {
