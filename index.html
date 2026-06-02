@@ -266,11 +266,11 @@
 
         // 2. Send quote details and photo URL to Google Sheets.
         const quotePayload = {
-          name: this.name.value,
-          phone: this.phone.value,
-          service: this.service.value,
-          email: this.email.value,
-          message: this.message.value,
+          name: document.getElementById("name").value,
+          phone: document.getElementById("phone").value,
+          service: document.getElementById("service").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value,
           photoUrl: photoUrl
         };
 
