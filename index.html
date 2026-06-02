@@ -156,18 +156,6 @@
         </div>
       </div>
 
-      <script>
-      const photoInput = document.getElementById("photo");
-      const photoFileName = document.getElementById("photoFileName");
-
-      photoInput.addEventListener("change", function () {
-        if (this.files && this.files.length > 0) {
-          photoFileName.textContent = this.files[0].name;
-        } else {
-          photoFileName.textContent = "Choose File";
-        }
-      });
-      </script>
 
       <aside class="quote-panel" id="quote">
         <h2>GET A FREE QUOTE</h2>
@@ -230,7 +218,18 @@
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1jRrsVNZQXPNGenqka4cb5NGOR637w5BULS_YlXb-NIkkAM5zg448AwJ0suJldnOG-w/exec";
 
     // Replace this with your deployed Cloudflare Worker URL.
-    const R2_UPLOAD_URL = "`https://photos.happyjunkpros.com/";
+    const R2_UPLOAD_URL = "weathered-fire-7654.chris0pher313.workers.dev";
+
+    const photoInput = document.getElementById("photo");
+    const photoFileName = document.getElementById("photoFileName");
+
+    photoInput.addEventListener("change", function () {
+      if (this.files && this.files.length > 0) {
+        photoFileName.textContent = this.files[0].name;
+      } else {
+        photoFileName.textContent = "Choose File";
+      }
+    });
 
     document.getElementById("quoteForm").addEventListener("submit", async function(e) {
       e.preventDefault();
@@ -286,7 +285,6 @@
 
         alert("Quote submitted successfully.");
         this.reset();
-        photoFileName.textContent = "Choose File";
 
       } catch (error) {
         alert("There was a problem submitting the quote. Please try again");
