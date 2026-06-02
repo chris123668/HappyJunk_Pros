@@ -216,24 +216,70 @@
     <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1jRrsVNZQXPNGenqka4cb5NGOR637w5BULS_YlXb-NIkkAM5zg448AwJ0suJldnOG-w/exec";
 
+    // Replace this with your deployed Cloudflare Worker URL.
+    const R2_UPLOAD_URL = "`https://photos.happyjunkpros.com/";
+
     document.getElementById("quoteForm").addEventListener("submit", async function(e) {
       e.preventDefault();
 
-      const formData = new FormData(this);
+      const submitButton = this.querySelector("button[type='submit']");
+      const originalButtonText = submitButton.innerHTML;
+      submitButton.disabled = true;
+      submitButton.innerHTML = "SUBMITTING...";
+
+      const photoInput = document.getElementById("photo");
+      let photoUrl = "";
 
       try {
+        // 1. Upload the photo to Cloudflare R2 through your Worker.
+        if (photoInput.files.length > 0) {
+          const r2FormData = new FormData();
+          r2FormData.append("photo", photoInput.files[0]);
+          r2FormData.append("name", this.name.value);
+
+          const r2Response = await fetch(R2_UPLOAD_URL, {
+            method: "POST",
+            body: r2FormData
+          });
+
+          const r2Result = await r2Response.json();
+
+          if (!r2Response.ok || !r2Result.success) {
+            throw new Error(r2Result.error || "Photo upload failed.");
+          }
+
+          photoUrl = r2Result.url;
+        }
+
+        // 2. Send quote details and photo URL to Google Sheets.
+        const quotePayload = {
+          name: this.name.value,
+          phone: this.phone.value,
+          service: this.service.value,
+          email: this.email.value,
+          message: this.message.value,
+          photoUrl: photoUrl
+        };
+
         await fetch(GOOGLE_SCRIPT_URL, {
           method: "POST",
           mode: "no-cors",
-          body: formData
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(quotePayload)
         });
 
         alert("Quote submitted successfully.");
         this.reset();
 
       } catch (error) {
-        alert("There was a problem submitting the quote.");
+        alert("There was a problem submitting the quote. Please try again");
         console.error(error);
+
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
       }
     });
     </script>
