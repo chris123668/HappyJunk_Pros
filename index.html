@@ -156,6 +156,19 @@
         </div>
       </div>
 
+      <script>
+      const photoInput = document.getElementById("photo");
+      const photoFileName = document.getElementById("photoFileName");
+
+      photoInput.addEventListener("change", function () {
+        if (this.files && this.files.length > 0) {
+          photoFileName.textContent = this.files[0].name;
+        } else {
+          photoFileName.textContent = "Choose File";
+        }
+      });
+      </script>
+
       <aside class="quote-panel" id="quote">
         <h2>GET A FREE QUOTE</h2>
         <div class="quote-underline"></div>
@@ -195,7 +208,7 @@
           <label class="file-row" for="photo">
             <span>▧</span>
             <strong>Upload a Photo (optional)</strong>
-            <em>Choose File</em>
+            <em id="photoFileName">Choose File</em>
             <input type="file" id="photo" name="photo" accept="image/*" />
           </label>
 
@@ -222,6 +235,7 @@
     document.getElementById("quoteForm").addEventListener("submit", async function(e) {
       e.preventDefault();
 
+      const photoFileName = document.getElementById("photoFileName");
       const submitButton = this.querySelector("button[type='submit']");
       const originalButtonText = submitButton.innerHTML;
       submitButton.disabled = true;
@@ -272,6 +286,7 @@
 
         alert("Quote submitted successfully.");
         this.reset();
+        photoFileName.textContent = "Choose File";
 
       } catch (error) {
         alert("There was a problem submitting the quote. Please try again");
